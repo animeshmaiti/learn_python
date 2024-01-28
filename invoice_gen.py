@@ -23,6 +23,7 @@ class Invoice:
         self.date = datetime.now()
         self.cost = 0
         self.items = []
+        self.comments = []
 
     def add_item(self, name, price, tax):
         # python makes working with trivial data-objects quite easy
@@ -61,6 +62,16 @@ class Invoice:
             print("Tax: " + str(item["tax"]*100)+"%\n")
         print("-----------------")
 
+    def add_comment(self, comment):
+        self.comments.append(comment)
+
+    def collect_comments(self):
+        result = ""
+        for comment in self.comments:
+            result += f"\n{comment}"
+        return result
+
+
 if __name__ == '__main__':
     invoice = Invoice(
         "Larry Jinkles",
@@ -75,6 +86,11 @@ if __name__ == '__main__':
     invoice.add_item("Equipment Rental", 1000, .1)
     invoice.add_item("Fear Tax", 340, 0.0)
     invoice.showDetails()
-    invoice_total,total_with_tax,discount,discount_amount = invoice.calculate_total(20)
+    invoice_total, total_with_tax, discount, discount_amount = invoice.calculate_total(
+        20)
 
-    print("Total amount $"+str(invoice_total)+"\n"+ "Total with tax $"+str(total_with_tax)+"\n"+"Discount "+str(discount)+"%"+"\n"+"Discount amount $"+str(discount_amount))
+    print("Total amount $"+str(invoice_total)+"\n" + "Total with tax $"+str(total_with_tax) +
+          "\n"+"Discount "+str(discount)+"%"+"\n"+"Discount amount $"+str(discount_amount))
+    invoice.add_comment("This is a comment")
+    invoice.add_comment("This is another comment")
+    print(invoice.collect_comments())
