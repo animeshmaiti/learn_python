@@ -1,0 +1,11 @@
+1. Import the dataset 'Salaries.csv'.
+2. Display how many rows and how many columns.
+3. Display first 10 rows and last 15 rows.
+4. Which Male and Female Professor has the highest and the lowest salaries?
+5. Which Professor takes the highest and lowest salaries?
+6. Missing 'Salaries' - should be replaced as mean of the matching salaries of those whose
+'service' is the same
+7. missing 'Felid' - should be replaced as of the matching 'service'
+8. How many are Male Staff and how many are Female Staffs.
+9. How many are prof, AssocProf and AsstProf.
+10. Who are the senior und junior most employees in the organization?
